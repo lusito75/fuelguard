@@ -54,6 +54,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'backoffice',
+    'driveoffs',
 )
 
 MIDDLEWARE_CLASSES = (
