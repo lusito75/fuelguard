@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^application/site_media/(.+)$ /static/static-only/$1 [L]
+RewriteRule ^application/site_media/(.+)$ /static/collected_static/$1 [L]

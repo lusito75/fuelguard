@@ -129,9 +129,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 if 'OPENSHIFT_REPO_DIR' in os.environ:
-    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static-only')
+    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'static-only')
+    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'collected_static')
 
 if 'OPENSHIFT_DATA_DIR' in os.environ:
     MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
