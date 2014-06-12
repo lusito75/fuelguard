@@ -140,7 +140,7 @@ else:
 
 if 'OPENSHIFT_REPO_DIR' in os.environ:
     STATICFILES_DIRS = (
-        os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static-only'),
+        os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static'),
     )
 else:
     STATICFILES_DIRS = (
