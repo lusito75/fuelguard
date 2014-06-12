@@ -138,6 +138,11 @@ if 'OPENSHIFT_DATA_DIR' in os.environ:
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'static', 'media')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'static', 'static'),
-)
+if 'OPENSHIFT_REPO_DIR' in os.environ:
+    STATICFILES_DIRS = (
+        os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static-only'),
+    )
+else:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, '..', 'static', 'static'),
+    )
