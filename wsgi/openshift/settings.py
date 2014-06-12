@@ -128,8 +128,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'static-only')
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'static', 'media')
+if 'OPENSHIFT_REPO_DIR' in os.environ:
+    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static-only')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'static-only')
+
+if 'OPENSHIFT_DATA_DIR' in os.environ:
+    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'static', 'media')
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '..', 'static', 'static'),
 )
