@@ -33,9 +33,9 @@ if ON_OPENSHIFT:
 SECRET_KEY = use_keys['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if ON_OPENSHIFT:
-     DEBUG = False
-else:
+#if ON_OPENSHIFT:
+#     DEBUG = False
+#else:
      DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
