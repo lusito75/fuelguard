@@ -34,8 +34,7 @@ SECRET_KEY = use_keys['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ON_OPENSHIFT:
-#     DEBUG = False
-     DEBUG = True 
+     DEBUG = False
 else:
      DEBUG = True
 
@@ -133,24 +132,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'bootstrap-3.1.1-dist'),
 )
 
-
-#STATIC_URL = '/static/'
-#MEDIA_URL = '/media/'
-#if 'OPENSHIFT_REPO_DIR' in os.environ:
-#    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
-#else:
-#    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'collected_static')
-#
-#if 'OPENSHIFT_DATA_DIR' in os.environ:
-#    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
-#else:
-#    MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'static', 'media')
-#
-#if 'OPENSHIFT_REPO_DIR' in os.environ:
-#    STATICFILES_DIRS = (
-#        os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static'),
-#    )
-#else:
-#    STATICFILES_DIRS = (
-#        os.path.join(BASE_DIR, '..', 'static', 'static'),
-#    )
