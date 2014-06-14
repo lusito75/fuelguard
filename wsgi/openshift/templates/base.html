@@ -57,10 +57,11 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to FuelGuard - No More Drive-offs!</h1>
-        <p>This application is quick-reference check of vehicle registration for purpose of assessing suitability of authorising the bowser pump for a customer.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <h1>No More Drive-offs!</h1>
       </div>
+    </div>
+
+    <div class="container">
     </div>
 
     <div class="container">
@@ -70,6 +71,16 @@
             {% block content %} {% endblock %}
         </div>
       </div>
+
+      {% if messages %}
+      <div class="row">
+        <div class="col-md-12" align="center">
+            {% for message in messages %}
+                <p {% if message.tags == 'success'%} class="alert alert-success"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+      </div>
+      {% endif %}
 
       <hr>
 
