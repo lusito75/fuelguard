@@ -126,23 +126,30 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-if 'OPENSHIFT_REPO_DIR' in os.environ:
-    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'collected_static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'bootstrap-3.1.1-dist'),
+)
 
-if 'OPENSHIFT_DATA_DIR' in os.environ:
-    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
-else:
-    MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'static', 'media')
 
-if 'OPENSHIFT_REPO_DIR' in os.environ:
-    STATICFILES_DIRS = (
-        os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static'),
-    )
-else:
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, '..', 'static', 'static'),
-    )
+#STATIC_URL = '/static/'
+#MEDIA_URL = '/media/'
+#if 'OPENSHIFT_REPO_DIR' in os.environ:
+#    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
+#else:
+#    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static', 'collected_static')
+#
+#if 'OPENSHIFT_DATA_DIR' in os.environ:
+#    MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'media')
+#else:
+#    MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'static', 'media')
+#
+#if 'OPENSHIFT_REPO_DIR' in os.environ:
+#    STATICFILES_DIRS = (
+#        os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'static'),
+#    )
+#else:
+#    STATICFILES_DIRS = (
+#        os.path.join(BASE_DIR, '..', 'static', 'static'),
+#    )
