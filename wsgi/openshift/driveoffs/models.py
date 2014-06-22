@@ -17,7 +17,7 @@ VEHICLE_MAKE = (
 )
 
 class Driveoff(models.Model):
-    rego = models.CharField(help_text='(excluding any \'-\')', max_length=10)
+    rego = models.CharField(help_text='(no dash)', max_length=10)
     state = models.CharField(max_length=3, choices=STATES_AND_TERRITORIES, blank=True)
     #make = models.CharField(max_length=40, choices=VEHICLE_MAKE, blank=True)
     make = models.CharField(max_length=40, blank=True)
