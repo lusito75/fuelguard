@@ -4,16 +4,21 @@ from django.contrib import messages
 # Create your views here.
 
 from .forms import DriveoffForm, RegoSearchForm
+from .models import Driveoff
 
 def home(request):
 
     form = RegoSearchForm(request.POST or None)
 
     if form.is_valid():
-        #save_it = form.save(commit=False)
-        #save_it.save()
         #query db .. send a message if we get a hit
-        messages.success(request, 'YES OK')
+        driveoffs = Driveoff.objects.filter(rego=form.rego)
+        
+        if not driveoffs:
+          messages.success(request, 'YES OK')
+        else:
+          messages.warning(request, 'DO NOT AUTHORISE!')
+          #loop through all driveoffs and send multiple messages
 
     return render_to_response("driveoff.html",
                                 locals(),
