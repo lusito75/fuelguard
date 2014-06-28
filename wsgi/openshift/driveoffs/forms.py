@@ -14,4 +14,4 @@ class RegoSearchForm(forms.ModelForm):
         widgets = {
             'rego': forms.TextInput(attrs={}),
         }
-        fields = ['rego', 'state',]
+        fields = ['rego', ]
