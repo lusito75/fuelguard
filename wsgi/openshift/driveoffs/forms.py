@@ -13,5 +13,6 @@ class RegoSearchForm(forms.ModelForm):
         model = Driveoff
         widgets = {
             'rego': forms.TextInput(attrs={}),
+            'colour': forms.TextInput(attrs={}),
         }
-        fields = ['rego', ]
+        fields = ['rego', 'colour', 'make', 'model', ]

@@ -80,6 +80,8 @@
                         class="alert alert-danger"
                     {% elif message.tags == 'error' %}
                         class="alert alert-danger" align="left"
+                    {% elif message.tags == 'info' %}
+                        class="alert alert-info" align="left"
                     {% endif %}>
                     {{ message }}</p>
             {% endfor %}
